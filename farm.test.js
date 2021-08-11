@@ -29,7 +29,8 @@ describe("getCostForCrops, calculate costs per crop", () => {
           high: 50
         }
       },
-      costPerPlant: 1
+      costPerPlant: 1,
+      salesPrice: 2
     };
     expect(getCostsForCrop(corn)).toBe(30);
   });
@@ -45,7 +46,8 @@ describe("getCostForCrops, calculate costs per crop", () => {
           high: 50
         }
       },
-      costPerPlant: 2
+      costPerPlant: 2,
+      salesPrice: 5
     };
     expect(getCostsForCrop(pumpkin)).toBe(8);
   });
@@ -72,11 +74,38 @@ describe("getRevenueForCrop", () => {
 
 describe("getProfitforCrop", () => {
   test("Profit for corn should be 30", () => {
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: {
+          low: -50,
+          medium: 0,
+          high: 50
+        }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
     const result = getProfitForCrop(corn);
     expect(result).toBe(30);
   });
   test("Profit for pumpkin should be 12", () => {
-    expect(getProfitForCrop(pumpkin)).toBe(12);
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: {
+          low: -50,
+          medium: 0,
+          high: 50
+        }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const result = getProfitForCrop(pumpkin);
+    expect(result).toBe(12);
   });
 });
 

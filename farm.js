@@ -32,7 +32,7 @@ const environmentFactors = {
 
 const getCostsForCrop = (crop) => {
   const costPerCrop = crop.yield * crop.costPerPlant;
-  console.log(costPerCrop);
+  console.log(crop.name, costPerCrop);
   return costPerCrop;
 };
 
@@ -44,11 +44,17 @@ const getTotalYield = () => {};
 
 const getRevenueForCrop = (crop) => {
   const revPerCrop = crop.yield * crop.salesPrice;
-  console.log(revPerCrop);
+  console.log(crop.name, revPerCrop);
   return revPerCrop;
 };
 
-const getProfitForCrop = () => {};
+const getProfitForCrop = (crop) => {
+  const costCrop = getCostsForCrop(crop);
+  const revCrop = getRevenueForCrop(crop);
+  profitCrop = revCrop - costCrop;
+  console.log(crop.name, profitCrop);
+  return profitCrop;
+};
 
 const getTotalProfit = () => {};
 
