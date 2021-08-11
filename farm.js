@@ -56,8 +56,10 @@ const getProfitForCrop = (crop) => {
   return profitCrop;
 };
 
-const getTotalProfit = () => {};
-
+const getTotalProfit = () => {
+  const totalProfit = getProfitForCrop(corn) + getProfitForCrop(pumpkin);
+  return totalProfit;
+};
 module.exports = {
   getCostsForCrop,
   getYieldForPlant,

@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628699800461" clover="3.2.0">
-  <project timestamp="1628699800461" name="All files">
-    <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="29" coveredelements="29" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+<coverage generated="1628700266734" clover="3.2.0">
+  <project timestamp="1628700266734" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="31" coveredelements="31" complexity="0" loc="24" ncloc="24" packages="1" files="1" classes="1"/>
     <file name="farm.js" path="/Users/treffers/Documents/WINC opleiding/Winc_Academy/Level_30_De_TDD_Groententuin/farm.js">
-      <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
       <line num="1" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
       <line num="29" count="1" type="stmt"/>
       <line num="33" count="1" type="stmt"/>
-      <line num="34" count="4" type="stmt"/>
-      <line num="35" count="4" type="stmt"/>
-      <line num="36" count="4" type="stmt"/>
+      <line num="34" count="6" type="stmt"/>
+      <line num="35" count="6" type="stmt"/>
+      <line num="36" count="6" type="stmt"/>
       <line num="39" count="1" type="stmt"/>
       <line num="41" count="1" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
       <line num="45" count="1" type="stmt"/>
-      <line num="46" count="4" type="stmt"/>
-      <line num="47" count="4" type="stmt"/>
-      <line num="48" count="4" type="stmt"/>
+      <line num="46" count="6" type="stmt"/>
+      <line num="47" count="6" type="stmt"/>
+      <line num="48" count="6" type="stmt"/>
       <line num="51" count="1" type="stmt"/>
-      <line num="52" count="2" type="stmt"/>
-      <line num="53" count="2" type="stmt"/>
-      <line num="54" count="2" type="stmt"/>
-      <line num="55" count="2" type="stmt"/>
-      <line num="56" count="2" type="stmt"/>
+      <line num="52" count="4" type="stmt"/>
+      <line num="53" count="4" type="stmt"/>
+      <line num="54" count="4" type="stmt"/>
+      <line num="55" count="4" type="stmt"/>
+      <line num="56" count="4" type="stmt"/>
       <line num="59" count="1" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
       <line num="61" count="1" type="stmt"/>
+      <line num="63" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
