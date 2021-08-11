@@ -1,4 +1,53 @@
-const { getYieldForPlant, getYieldForCrop, getTotalYield } = require("./farm");
+const {
+  getCostsForCrop,
+  getYieldForPlant,
+  getYieldForCrop,
+  getTotalYield,
+  getRevenueForCrop,
+  getProfitForCrop,
+  getTotalProfit
+} = require("./farm");
+
+describe("todo's", () => {
+  test.todo("getTotalYield");
+  test.todo("getRevenueForCrop");
+  test.todo("getProfitForCrop");
+  test.todo("getTotalProfit");
+});
+
+describe("getCostForCrops, calculate costs per crop", () => {
+  test("cost for corn should be 30 ", () => {
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: {
+          low: -50,
+          medium: 0,
+          high: 50
+        }
+      },
+      costPerPlant: 1
+    };
+    expect(getCostsForCrop(corn)).toBe(30);
+  });
+
+  test("cost for pumpkin should be 8 ", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: {
+          low: -50,
+          medium: 0,
+          high: 50
+        }
+      },
+      costPerPlant: 2
+    };
+    expect(getCostsForCrop(pumpkin)).toBe(8);
+  });
+});
 
 describe("getYieldForPlant", () => {
   const corn = {

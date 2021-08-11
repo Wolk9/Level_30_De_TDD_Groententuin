@@ -7,14 +7,32 @@ const corn = {
       medium: 0,
       high: 50
     }
-  }
+  },
+  costPerPlant: 1
+};
+
+const pumpkin = {
+  name: "pumpkin",
+  yield: 4,
+  factors: {
+    sun: {
+      low: -50,
+      medium: 0,
+      high: 50
+    }
+  },
+  costPerPlant: 2
 };
 
 const environmentFactors = {
   sun: "low"
 };
 
-const getCostsForCrop = () => {};
+const getCostsForCrop = (crop) => {
+  const costPerCrop = crop.yield * crop.costPerPlant;
+  console.log(costPerCrop);
+  return costPerCrop;
+};
 
 const getYieldForPlant = () => {};
 
