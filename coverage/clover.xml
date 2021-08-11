@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628697706705" clover="3.2.0">
-  <project timestamp="1628697706705" name="All files">
-    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4" elements="21" coveredelements="18" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
+<coverage generated="1628698133818" clover="3.2.0">
+  <project timestamp="1628698133818" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5" elements="21" coveredelements="19" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
     <file name="farm.js" path="/Users/treffers/Documents/WINC opleiding/Winc_Academy/Level_30_De_TDD_Groententuin/farm.js">
-      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="32" count="2" type="stmt"/>
-      <line num="33" count="2" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
       <line num="34" count="2" type="stmt"/>
-      <line num="37" count="1" type="stmt"/>
+      <line num="35" count="2" type="stmt"/>
+      <line num="36" count="2" type="stmt"/>
       <line num="39" count="1" type="stmt"/>
       <line num="41" count="1" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
       <line num="45" count="1" type="stmt"/>
       <line num="47" count="1" type="stmt"/>
       <line num="49" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

@@ -10,7 +10,7 @@ const {
 
 describe("todo's", () => {
   test.todo("getTotalYield");
-  test.todo("getRevenueForCrop");
+
   test.todo("getProfitForCrop");
   test.todo("getTotalProfit");
 });
@@ -46,6 +46,25 @@ describe("getCostForCrops, calculate costs per crop", () => {
       costPerPlant: 2
     };
     expect(getCostsForCrop(pumpkin)).toBe(8);
+  });
+});
+
+describe("getRevenueForCrop", () => {
+  test("revenue for corn should be 60", () => {
+    const corn = {
+      name: "corn",
+      yield: 30,
+      salesPrice: 2
+    };
+    expect(getRevenueForCrop(corn)).toBe(60);
+  });
+  test("revenue for pumpkin should be 60", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      salesPrice: 5
+    };
+    expect(getRevenueForCrop(pumpkin)).toBe(60);
   });
 });
 

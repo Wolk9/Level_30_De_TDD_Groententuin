@@ -8,7 +8,8 @@ const corn = {
       high: 50
     }
   },
-  costPerPlant: 1
+  costPerPlant: 1,
+  salesPrice: 2
 };
 
 const pumpkin = {
@@ -21,7 +22,8 @@ const pumpkin = {
       high: 50
     }
   },
-  costPerPlant: 2
+  costPerPlant: 2,
+  salesPrice: 5
 };
 
 const environmentFactors = {
