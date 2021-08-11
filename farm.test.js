@@ -1,4 +1,6 @@
 const {
+  corn,
+  pumpkin,
   getCostsForCrop,
   getYieldForPlant,
   getYieldForCrop,
@@ -65,6 +67,16 @@ describe("getRevenueForCrop", () => {
       salesPrice: 5
     };
     expect(getRevenueForCrop(pumpkin)).toBe(20);
+  });
+});
+
+describe("getProfitforCrop", () => {
+  test("Profit for corn should be 30", () => {
+    const result = getProfitForCrop(corn);
+    expect(result).toBe(30);
+  });
+  test("Profit for pumpkin should be 12", () => {
+    expect(getProfitForCrop(pumpkin)).toBe(12);
   });
 });
 
