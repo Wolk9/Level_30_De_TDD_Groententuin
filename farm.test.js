@@ -1,6 +1,4 @@
 const {
-  corn,
-  pumpkin,
   getCostsForCrop,
   getYieldForPlant,
   getYieldForCrop,
@@ -12,9 +10,6 @@ const {
 
 describe("todo's", () => {
   test.todo("getTotalYield");
-
-  test.todo("getProfitForCrop");
-  test.todo("getTotalProfit");
 });
 
 describe("getCostForCrops, calculate costs per crop", () => {
@@ -106,6 +101,13 @@ describe("getProfitforCrop", () => {
     };
     const result = getProfitForCrop(pumpkin);
     expect(result).toBe(12);
+  });
+});
+
+describe("getTotalProfit", () => {
+  test("total profit for all crops (corn + pumpkin) should be 42", () => {
+    let result = getTotalProfit();
+    expect(result).toBe(42);
   });
 });
 
