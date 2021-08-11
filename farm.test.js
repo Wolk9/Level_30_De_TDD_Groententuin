@@ -58,13 +58,13 @@ describe("getRevenueForCrop", () => {
     };
     expect(getRevenueForCrop(corn)).toBe(60);
   });
-  test("revenue for pumpkin should be 60", () => {
+  test("revenue for pumpkin should be 20", () => {
     const pumpkin = {
       name: "pumpkin",
       yield: 4,
       salesPrice: 5
     };
-    expect(getRevenueForCrop(pumpkin)).toBe(60);
+    expect(getRevenueForCrop(pumpkin)).toBe(20);
   });
 });
 

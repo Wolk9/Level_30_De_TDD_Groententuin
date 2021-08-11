@@ -42,7 +42,11 @@ const getYieldForCrop = () => {};
 
 const getTotalYield = () => {};
 
-const getRevenueForCrop = () => {};
+const getRevenueForCrop = (crop) => {
+  const revPerCrop = crop.yield * crop.salesPrice;
+  console.log(revPerCrop);
+  return revPerCrop;
+};
 
 const getProfitForCrop = () => {};
 
