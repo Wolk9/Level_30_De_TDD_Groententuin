@@ -14,6 +14,8 @@ const environmentFactors = {
   sun: "low"
 };
 
+const getCostsForCrop = () => {};
+
 const getYieldForPlant = () => {};
 
 const getYieldForCrop = () => {};
@@ -27,6 +29,7 @@ const getProfitForCrop = () => {};
 const getTotalProfit = () => {};
 
 module.exports = {
+  getCostsForCrop,
   getYieldForPlant,
   getYieldForCrop,
   getTotalYield,
