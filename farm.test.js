@@ -117,8 +117,30 @@ describe("getYieldForPlant", () => {
     yield: 30
   };
 
+  const pumpkin = {
+    name: "pumpkin",
+    yield: 4
+  };
+
   test("Get yield for plant with no environment factors", () => {
     expect(getYieldForPlant(corn)).toBe(30);
+  });
+
+  test("Get yield for corn with low sun, medium wind, low rain factors", () => {
+    const environmentFactors = {
+      sun: "low",
+      wind: "medium",
+      rain: "low"
+    };
+    expect(getYieldForPlant(corn, environmentFactors)).toBe(15.12);
+  });
+  test("Get yield for pumpkin with high sun, low wind, low rain factors", () => {
+    const environmentFactors = {
+      sun: "high",
+      wind: "low",
+      rain: "low"
+    };
+    expect(getYieldForPlant(corn, environmentFactors)).toBe(15.12);
   });
 });
 

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">96.97% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>32/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">96.97% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>32/33</span>
             </div>
         
             
@@ -140,9 +140,22 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,18 +170,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,18 +179,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -227,11 +233,9 @@
   name: "corn",
   yield: 30,
   factors: {
-    sun: {
-      low: -50,
-      medium: 0,
-      high: 50
-    }
+    sun: { low: -10, medium: 0, high: 60 },
+    wind: { low: 0, medium: -30, high: -60 },
+    rain: { low: -20, medium: 0, high: -70 }
   },
   costPerPlant: 1,
   salesPrice: 2
@@ -241,18 +245,18 @@ const pumpkin = {
   name: "pumpkin",
   yield: 4,
   factors: {
-    sun: {
-      low: -50,
-      medium: 0,
-      high: 50
-    }
+    sun: { low: -50, medium: 0, high: 50 },
+    wind: { low: 0, medium: -10, high: -30 },
+    rain: { low: -40, medium: 0, high: -20 }
   },
   costPerPlant: 2,
   salesPrice: 5
 };
 &nbsp;
 const environmentFactors = {
-  sun: "low"
+  sun: "low",
+  wind: "medium",
+  rain: "low"
 };
 &nbsp;
 const getCostsForCrop = (crop) =&gt; {
@@ -260,9 +264,16 @@ const getCostsForCrop = (crop) =&gt; {
   return costPerCrop;
 };
 &nbsp;
-const getYieldForPlant = (crop) =&gt; {
-  let yieldForPlant = crop.yield;
-  return yieldForPlant;
+const getYieldForPlant = (crop, environmentFactors) =&gt; {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (environmentFactors != "") {
+    console.log(
+      environmentFactors.sun,
+      environmentFactors.wind,
+      environmentFactors.rain
+    );
+    calculatedEnvironmentFactor = 0.504;
+    return crop.yield * calculatedEnvironmentFactor;
+  } else <span class="cstat-no" title="statement not covered" >return crop.yield;</span>
 };
 &nbsp;
 const getYieldForCrop = (crop) =&gt; {
@@ -271,8 +282,6 @@ const getYieldForCrop = (crop) =&gt; {
 };
 &nbsp;
 const getTotalYield = (list) =&gt; {
-  console.log("51", list);
-  console.log("52", list.crops.length);
   listOfCrops = list.crops;
   let totalYield = 0;
   for (i = 0; i &lt; listOfCrops.length; i++) {
@@ -313,7 +322,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Aug 12 2021 11:59:07 GMT+0200 (Midden-Europese zomertijd)
+                at Thu Aug 12 2021 14:17:36 GMT+0200 (Midden-Europese zomertijd)
             </div>
         </div>
         <script src="prettify.js"></script>
