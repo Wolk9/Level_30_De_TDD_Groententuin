@@ -36,11 +36,30 @@ const getCostsForCrop = (crop) => {
 const getYieldForPlant = (crop, environmentFactors) => {
   if (environmentFactors != "") {
     console.log(
+      "38",
       environmentFactors.sun,
       environmentFactors.wind,
       environmentFactors.rain
     );
-    calculatedEnvironmentFactor = 0.504;
+    let sunFactor = environmentFactors.sun;
+    let windFactor = environmentFactors.wind;
+    let rainFactor = environmentFactors.rain;
+    const chosenCrop = crop;
+
+    console.log(
+      "49",
+      ((100 + crop.factors.sun[sunFactor]) / 100) *
+        ((100 + crop.factors.wind[windFactor]) / 100) *
+        ((100 + crop.factors.rain[rainFactor]) / 100)
+    );
+    const calcEnvFact =
+      ((100 + crop.factors.sun[sunFactor]) / 100) *
+      ((100 + crop.factors.wind[windFactor]) / 100) *
+      ((100 + crop.factors.rain[rainFactor]) / 100);
+
+    // calculatedEnvironmentFactor = [crop].windFactor;
+    calculatedEnvironmentFactor =
+      Math.round(calcEnvFact * 100 + Number.EPSILON) / 100;
     return crop.yield * calculatedEnvironmentFactor;
   } else return crop.yield;
 };
