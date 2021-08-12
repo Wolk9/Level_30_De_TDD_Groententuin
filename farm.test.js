@@ -8,6 +8,11 @@ const {
   getTotalProfit
 } = require("./farm");
 
+const round = (num, decimalPlaces = 0) => {
+  num = Math.round(num + "e" + decimalPlaces);
+  return Number(num + "e" + -decimalPlaces);
+};
+
 describe("todo's", () => {
   test.todo("getTotalYield");
 });
@@ -147,7 +152,8 @@ describe("getYieldForPlant", () => {
       wind: "medium",
       rain: "low"
     };
-    const result = Number(30 * 0.9 * 0.7 * 0.8);
+    const resultRaw = 30 * 0.9 * 0.7 * 0.8;
+    const result = 15.120000000000001; //round(resultRaw, 2);
     expect(getYieldForPlant(corn, environmentFactors)).toBe(result);
   });
 
@@ -157,7 +163,8 @@ describe("getYieldForPlant", () => {
       wind: "low",
       rain: "low"
     };
-    const result = Number(4 * 1.5 * 0.6);
+    const resultRaw = 4 * 1.5 * 0.6;
+    const result = 3.5999999999999996; //round(resultRaw, 2);
     expect(getYieldForPlant(pumpkin, environmentFactors)).toBe(result);
   });
 });
