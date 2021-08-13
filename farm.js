@@ -35,26 +35,27 @@ const getCostsForCrop = (crop) => {
 
 const getYieldForPlant = (crop, envFact) => {
   if (envFact != "") {
-    let sunFactor = envFact.sun;
-    let windFactor = envFact.wind;
-    let rainFactor = envFact.rain;
+    // test wether this should be calculated at all
+    let sunFactor = envFact.sun; // extract the sun factor out of envFact
+    let windFactor = envFact.wind; // extract the wind factor out of envFact
+    let rainFactor = envFact.rain; // extract the rain factor out of envFact
 
-    const calcEnvFact =
+    const calcEnvFact = // calculate the environmental factors
       ((100 + crop.factors.sun[sunFactor]) / 100) *
       ((100 + crop.factors.wind[windFactor]) / 100) *
       ((100 + crop.factors.rain[rainFactor]) / 100);
 
-    calculatedEnvironmentFactor = Number(calcEnvFact).toFixed(1);
+    calculatedEnvironmentFactor = Number(calcEnvFact).toFixed(1); // round up due to floatingpoint errors
     return crop.yield * calculatedEnvironmentFactor; //round(calculatedEnvrionmentFactor, 2);
-  } else return crop.yield;
+  } else return crop.yield; // just return the crop yield when no environmental factors play a role.
 };
 
 const getYieldForCrop = (crop, envFact) => {
-  numCrops = crop.numCrops;
-  crop = crop.crop;
-  let cropYield = getYieldForPlant(crop, envFact);
-  let yieldForCrop = cropYield * numCrops;
-  return yieldForCrop;
+  numCrops = crop.numCrops; // extract numCrops of crop for the calculation
+  crop = crop.crop; // dismantel the crop input to just crop info as getYeildForPlant expects
+  let cropYield = getYieldForPlant(crop, envFact); // use yield for crop function for a result as cropYield
+  let yieldForCrop = cropYield * numCrops; // calculation of yield of Crop
+  return yieldForCrop; // the calculated result
 };
 
 const getTotalYield = (list) => {
