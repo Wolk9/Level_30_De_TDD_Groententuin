@@ -58,7 +58,7 @@ const getYieldForCrop = (crop, envFact) => {
   return yieldForCrop; // the calculated result
 };
 
-const getTotalYield = (list) => {
+const getTotalYield = (list, envFact) => {
   listOfCrops = list.crops;
   let totalYield = 0;
   for (i = 0; i < listOfCrops.length; i++) {

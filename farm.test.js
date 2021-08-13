@@ -250,6 +250,76 @@ describe("getTotalYield", () => {
     expect(getTotalYield({ crops })).toBe(23);
   });
 
+  test.only("Calculate total yield with multiple crops with environment factors", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const environmentFactors = {
+      sun: "low",
+      wind: "medium",
+      rain: "medium"
+    };
+    const crops = [
+      { crop: corn, numCrops: 5 },
+      { crop: pumpkin, numCrops: 2 }
+    ];
+    expect(getTotalYield({ crops }, environmentFactors)).toBe(98.1);
+  });
+
+  test.only("Calculate total yield with multiple crops with environment factors", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const environmentFactors = {
+      sun: "high",
+      wind: "medium",
+      rain: "low"
+    };
+    const crops = [
+      { crop: corn, numCrops: 5 },
+      { crop: pumpkin, numCrops: 2 }
+    ];
+    expect(getTotalYield({ crops }, environmentFactors)).toBe(140.88);
+  });
+
   test("Calculate total yield with 0 amount", () => {
     const corn = {
       name: "corn",
