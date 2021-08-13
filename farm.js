@@ -22,11 +22,6 @@ const pumpkin = {
   salesPrice: 5
 };
 
-const round = (num, decimalPlaces = 0) => {
-  num = Math.round(num + "e" + decimalPlaces);
-  return Number(num + "e" + -decimalPlaces);
-};
-
 const environmentFactors = {
   sun: "low",
   wind: "medium",
@@ -40,32 +35,17 @@ const getCostsForCrop = (crop) => {
 
 const getYieldForPlant = (crop, environmentFactors) => {
   if (environmentFactors != "") {
-    console.log(
-      "38",
-      environmentFactors.sun,
-      environmentFactors.wind,
-      environmentFactors.rain
-    );
     let sunFactor = environmentFactors.sun;
     let windFactor = environmentFactors.wind;
     let rainFactor = environmentFactors.rain;
-    const chosenCrop = crop;
 
-    console.log(
-      "49",
-      round(
-        ((100 + crop.factors.sun[sunFactor]) / 100) *
-          ((100 + crop.factors.wind[windFactor]) / 100) *
-          ((100 + crop.factors.rain[rainFactor]) / 100),
-        2
-      )
-    );
-    const calculatedEnvironmentFactor =
+    const calcEnvFact =
       ((100 + crop.factors.sun[sunFactor]) / 100) *
       ((100 + crop.factors.wind[windFactor]) / 100) *
       ((100 + crop.factors.rain[rainFactor]) / 100);
-    console.log("69", calculatedEnvironmentFactor);
-    // calculatedEnvironmentFactor = [crop].windFactor;
+
+    calculatedEnvironmentFactor = Number(calcEnvFact).toFixed(1);
+    console.log("53", calculatedEnvironmentFactor);
     return crop.yield * calculatedEnvironmentFactor; //round(calculatedEnvrionmentFactor, 2);
   } else return crop.yield;
 };

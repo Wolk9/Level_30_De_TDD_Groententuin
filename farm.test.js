@@ -152,9 +152,11 @@ describe("getYieldForPlant", () => {
       wind: "medium",
       rain: "low"
     };
-    const resultRaw = 30 * 0.9 * 0.7 * 0.8;
-    const result = 15.120000000000001; //round(resultRaw, 2);
-    expect(getYieldForPlant(corn, environmentFactors)).toBe(result);
+    //const result = 15.120000000000001; //round(resultRaw, 2);
+    expect(getYieldForPlant(corn, environmentFactors)).toBeCloseTo(
+      30 * 0.9 * 0.7 * 0.8,
+      0
+    );
   });
 
   test("Get yield for pumpkin with high sun, low wind, low rain factors", () => {
@@ -163,9 +165,11 @@ describe("getYieldForPlant", () => {
       wind: "low",
       rain: "low"
     };
-    const resultRaw = 4 * 1.5 * 0.6;
-    const result = 3.5999999999999996; //round(resultRaw, 2);
-    expect(getYieldForPlant(pumpkin, environmentFactors)).toBe(result);
+    //const result = 3.5999999999999996; //round(resultRaw, 2);
+    expect(getYieldForPlant(pumpkin, environmentFactors)).toBeCloseTo(
+      4 * 1.5 * 0.6,
+      1
+    );
   });
 });
 
