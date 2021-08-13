@@ -33,11 +33,11 @@ const getCostsForCrop = (crop) => {
   return costPerCrop;
 };
 
-const getYieldForPlant = (crop, environmentFactors) => {
-  if (environmentFactors != "") {
-    let sunFactor = environmentFactors.sun;
-    let windFactor = environmentFactors.wind;
-    let rainFactor = environmentFactors.rain;
+const getYieldForPlant = (crop, envFact) => {
+  if (envFact != "") {
+    let sunFactor = envFact.sun;
+    let windFactor = envFact.wind;
+    let rainFactor = envFact.rain;
 
     const calcEnvFact =
       ((100 + crop.factors.sun[sunFactor]) / 100) *
@@ -45,13 +45,15 @@ const getYieldForPlant = (crop, environmentFactors) => {
       ((100 + crop.factors.rain[rainFactor]) / 100);
 
     calculatedEnvironmentFactor = Number(calcEnvFact).toFixed(1);
-    console.log("53", calculatedEnvironmentFactor);
     return crop.yield * calculatedEnvironmentFactor; //round(calculatedEnvrionmentFactor, 2);
   } else return crop.yield;
 };
 
-const getYieldForCrop = (crop) => {
-  let yieldForCrop = crop.crop.yield * crop.numCrops;
+const getYieldForCrop = (crop, envFact) => {
+  numCrops = crop.numCrops;
+  crop = crop.crop;
+  let cropYield = getYieldForPlant(crop, envFact);
+  let yieldForCrop = cropYield * numCrops;
   return yieldForCrop;
 };
 
