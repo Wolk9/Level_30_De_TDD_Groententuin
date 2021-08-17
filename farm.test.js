@@ -8,13 +8,10 @@ const {
   getTotalProfit
 } = require("./farm");
 
-const round = (num, decimalPlaces = 0) => {
-  num = Math.round(num + "e" + decimalPlaces);
-  return Number(num + "e" + -decimalPlaces);
-};
-
 describe("todo's", () => {
-  test.todo("getTotalYield");
+  test.todo("getRevueForCrop with enviroment");
+  test.todo("getProfitForCrop with enviroment");
+  test.todo("getTotalProfit with enviroment");
 });
 
 describe("getCostForCrops, calculate costs per crop", () => {
@@ -69,6 +66,115 @@ describe("getRevenueForCrop", () => {
       salesPrice: 5
     };
     expect(getRevenueForCrop(pumpkin)).toBe(20);
+  });
+  test("revenue for corn should be x, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const input = {
+      crop: corn,
+      numCrops: 10
+    };
+    const environmentFactors = {
+      sun: "high",
+      wind: "low",
+      rain: "medium"
+    };
+    result =
+      (1.6 * 1 * 1).toFixed(2) * corn.yield * corn.salesPrice * input.numCrops; // 960
+    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+  });
+  test("revenue for corn should be x, with environment Sun:medium, Wind: High, Rain: low", () => {
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const input = {
+      crop: corn,
+      numCrops: 10
+    };
+    const environmentFactors = {
+      sun: "high",
+      wind: "low",
+      rain: "medium"
+    };
+    result =
+      (1 * 0.4 * 0.8).toFixed(2) *
+      corn.yield *
+      corn.salesPrice *
+      input.numCrops; // 192
+    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+  });
+  test("revenue for pumpkin should be x, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const input = {
+      crop: pumpkin,
+      numCrops: 50
+    };
+    const environmentFactors = {
+      sun: "low",
+      wind: "medium",
+      rain: "medium"
+    };
+    result =
+      (1.5 * 0.9 * 1).toFixed(2) *
+      pumpkin.yield *
+      pumpkin.salesPrice *
+      input.numCrops; //1350
+    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+  });
+  test("revenue for pumpkin should be x, with environment Sun:medium, Wind: High, Rain: low", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const input = {
+      crop: pumpkin,
+      numCrops: 50
+    };
+    const environmentFactors = {
+      sun: "low",
+      wind: "medium",
+      rain: "medium"
+    };
+    result =
+      (1 * 0.7 * 0.6).toFixed(2) *
+      pumpkin.yield *
+      pumpkin.salesPrice *
+      input.numCrops; // 420
+    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
 });
 
