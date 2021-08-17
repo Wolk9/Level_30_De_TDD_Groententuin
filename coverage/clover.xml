@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629203958126" clover="3.2.0">
-  <project timestamp="1629203958126" name="All files">
+<coverage generated="1629207240738" clover="3.2.0">
+  <project timestamp="1629207240738" name="All files">
     <metrics statements="49" coveredstatements="49" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7" elements="64" coveredelements="64" complexity="0" loc="49" ncloc="49" packages="1" files="1" classes="1"/>
     <file name="farm.js" path="/Users/treffers/Documents/WINC opleiding/Winc_Academy/Level_30_De_TDD_Groententuin/farm.js">
       <metrics statements="49" coveredstatements="49" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
@@ -11,22 +11,22 @@
       <line num="32" count="6" type="stmt"/>
       <line num="33" count="6" type="stmt"/>
       <line num="36" count="1" type="stmt"/>
-      <line num="37" count="13" type="cond" truecount="2" falsecount="0"/>
-      <line num="39" count="12" type="stmt"/>
-      <line num="40" count="12" type="stmt"/>
-      <line num="41" count="12" type="stmt"/>
-      <line num="44" count="12" type="stmt"/>
-      <line num="47" count="12" type="stmt"/>
-      <line num="49" count="12" type="stmt"/>
-      <line num="51" count="12" type="stmt"/>
+      <line num="37" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="16" type="stmt"/>
+      <line num="40" count="16" type="stmt"/>
+      <line num="41" count="16" type="stmt"/>
+      <line num="44" count="16" type="stmt"/>
+      <line num="47" count="16" type="stmt"/>
+      <line num="49" count="16" type="stmt"/>
+      <line num="51" count="16" type="stmt"/>
       <line num="52" count="1" type="stmt"/>
       <line num="55" count="1" type="stmt"/>
-      <line num="56" count="14" type="stmt"/>
-      <line num="57" count="14" type="stmt"/>
-      <line num="58" count="14" type="cond" truecount="2" falsecount="0"/>
-      <line num="59" count="10" type="stmt"/>
-      <line num="61" count="10" type="stmt"/>
-      <line num="62" count="10" type="stmt"/>
+      <line num="56" count="18" type="stmt"/>
+      <line num="57" count="18" type="stmt"/>
+      <line num="58" count="18" type="cond" truecount="2" falsecount="0"/>
+      <line num="59" count="14" type="stmt"/>
+      <line num="61" count="14" type="stmt"/>
+      <line num="62" count="14" type="stmt"/>
       <line num="63" count="4" type="stmt"/>
       <line num="66" count="1" type="stmt"/>
       <line num="67" count="4" type="stmt"/>
@@ -38,10 +38,10 @@
       <line num="75" count="3" type="stmt"/>
       <line num="78" count="4" type="stmt"/>
       <line num="81" count="1" type="stmt"/>
-      <line num="82" count="10" type="cond" truecount="2" falsecount="0"/>
-      <line num="83" count="4" type="stmt"/>
-      <line num="84" count="4" type="stmt"/>
-      <line num="85" count="4" type="stmt"/>
+      <line num="82" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="83" count="8" type="stmt"/>
+      <line num="84" count="8" type="stmt"/>
+      <line num="85" count="8" type="stmt"/>
       <line num="87" count="6" type="stmt"/>
       <line num="88" count="6" type="stmt"/>
       <line num="91" count="1" type="stmt"/>
