@@ -9,7 +9,7 @@ const {
 } = require("./farm");
 
 describe("todo's", () => {
-  test.todo("getRevueForCrop with enviroment");
+  // test.todo("getRevueForCrop with enviroment");
   test.todo("getProfitForCrop with enviroment");
   test.todo("getTotalProfit with enviroment");
 });
@@ -67,7 +67,7 @@ describe("getRevenueForCrop", () => {
     };
     expect(getRevenueForCrop(pumpkin)).toBe(20);
   });
-  test("revenue for corn should be x, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+  test("revenue for corn should be 960, with environment Sun:high, Wind: Low, Rain: Medium", () => {
     const corn = {
       name: "corn",
       yield: 30,
@@ -92,7 +92,7 @@ describe("getRevenueForCrop", () => {
       (1.6 * 1 * 1).toFixed(2) * corn.yield * corn.salesPrice * input.numCrops; // 960
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
-  test("revenue for corn should be x, with environment Sun:medium, Wind: High, Rain: low", () => {
+  test("revenue for corn should be 192, with environment Sun:medium, Wind: High, Rain: low", () => {
     const corn = {
       name: "corn",
       yield: 30,
@@ -120,7 +120,7 @@ describe("getRevenueForCrop", () => {
       input.numCrops; // 192
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
-  test("revenue for pumpkin should be x, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+  test("revenue for pumpkin should be 1350, with environment Sun:high, Wind: Low, Rain: Medium", () => {
     const pumpkin = {
       name: "pumpkin",
       yield: 4,
@@ -148,7 +148,7 @@ describe("getRevenueForCrop", () => {
       input.numCrops; //1350
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
-  test("revenue for pumpkin should be x, with environment Sun:medium, Wind: High, Rain: low", () => {
+  test("revenue for pumpkin should be 420, with environment Sun:medium, Wind: High, Rain: low", () => {
     const pumpkin = {
       name: "pumpkin",
       yield: 4,
