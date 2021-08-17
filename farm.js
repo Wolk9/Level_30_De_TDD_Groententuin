@@ -78,7 +78,12 @@ const getTotalYield = (list, envFact) => {
   return Number(totalYield);
 };
 
-const getRevenueForCrop = (crop) => {
+const getRevenueForCrop = (crop, envFact) => {
+  if (envFact != undefined) {
+    let yieldForCropWithEnv = getYieldForCrop(crop, envFact);
+    let revPerCrop = yieldForCropWithEnv; //* corn.salesPrice * numCrops;
+    return revPerCrop * crop.crop.salesPrice;
+  }
   const revPerCrop = crop.yield * crop.salesPrice;
   return revPerCrop;
 };

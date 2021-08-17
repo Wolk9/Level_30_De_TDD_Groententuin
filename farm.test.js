@@ -88,8 +88,7 @@ describe("getRevenueForCrop", () => {
       wind: "low",
       rain: "medium"
     };
-    result =
-      (1.6 * 1 * 1).toFixed(2) * corn.yield * corn.salesPrice * input.numCrops; // 960
+    let result = 1.6 * 1 * 1 * 30 * 2 * 10; // 960
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
   test("revenue for corn should be 192, with environment Sun:medium, Wind: High, Rain: low", () => {
@@ -109,15 +108,12 @@ describe("getRevenueForCrop", () => {
       numCrops: 10
     };
     const environmentFactors = {
-      sun: "high",
-      wind: "low",
-      rain: "medium"
+      sun: "medium",
+      wind: "high",
+      rain: "low"
     };
-    result =
-      (1 * 0.4 * 0.8).toFixed(2) *
-      corn.yield *
-      corn.salesPrice *
-      input.numCrops; // 192
+    let envFact = 1 * 0.4 * 0.8;
+    let result = envFact.toFixed(2) * 30 * 2 * 10; // 192
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
   test("revenue for pumpkin should be 1350, with environment Sun:high, Wind: Low, Rain: Medium", () => {
@@ -137,15 +133,11 @@ describe("getRevenueForCrop", () => {
       numCrops: 50
     };
     const environmentFactors = {
-      sun: "low",
-      wind: "medium",
+      sun: "high",
+      wind: "low",
       rain: "medium"
     };
-    result =
-      (1.5 * 0.9 * 1).toFixed(2) *
-      pumpkin.yield *
-      pumpkin.salesPrice *
-      input.numCrops; //1350
+    let result = 1.5 * 1 * 1 * 4 * 5 * 50; //1350
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
   test("revenue for pumpkin should be 420, with environment Sun:medium, Wind: High, Rain: low", () => {
@@ -165,15 +157,13 @@ describe("getRevenueForCrop", () => {
       numCrops: 50
     };
     const environmentFactors = {
-      sun: "low",
-      wind: "medium",
-      rain: "medium"
+      sun: "medium",
+      wind: "high",
+      rain: "low"
     };
-    result =
-      (1 * 0.7 * 0.6).toFixed(2) *
-      pumpkin.yield *
-      pumpkin.salesPrice *
-      input.numCrops; // 420
+    let envFact = 1 * 0.7 * 0.6;
+
+    let result = envFact.toFixed(2) * 4 * 5 * 50; // 420
     expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
   });
 });
