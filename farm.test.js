@@ -202,7 +202,7 @@ describe("getProfitforCrop", () => {
     const result = getProfitForCrop(pumpkin);
     expect(result).toBe(12);
   });
-  test("profit for corn should be 480, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+  test.only("profit for corn should be 480, with environment Sun:high, Wind: Low, Rain: Medium", () => {
     const corn = {
       name: "corn",
       yield: 30,
@@ -224,7 +224,7 @@ describe("getProfitforCrop", () => {
       rain: "medium"
     };
     let result = 1.6 * 1 * 1 * 30 * (2 - 1) * 10; // 480
-    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+    expect(getProfitForCrop(input, environmentFactors)).toBe(result);
   });
   test("profit for corn should be 96, with environment Sun:medium, Wind: High, Rain: low", () => {
     const corn = {
@@ -249,7 +249,7 @@ describe("getProfitforCrop", () => {
     };
     let envFact = 1 * 0.4 * 0.8;
     let result = envFact.toFixed(2) * 30 * (2 - 1) * 10; // 96
-    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+    expect(getProfitForCrop(input, environmentFactors)).toBe(result);
   });
   test("profit for pumpkin should be 900, with environment Sun:high, Wind: Low, Rain: Medium", () => {
     const pumpkin = {
@@ -273,7 +273,7 @@ describe("getProfitforCrop", () => {
       rain: "medium"
     };
     let result = 1.5 * 1 * 1 * 4 * (5 - 2) * 50; //900
-    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+    expect(getProfitForCrop(input, environmentFactors)).toBe(result);
   });
   test("profit for pumpkin should be 252, with environment Sun:medium, Wind: High, Rain: low", () => {
     const pumpkin = {
@@ -299,7 +299,7 @@ describe("getProfitforCrop", () => {
     let envFact = 1 * 0.7 * 0.6;
 
     let result = envFact.toFixed(2) * 4 * (5 - 2) * 50; // 252
-    expect(getRevenueForCrop(input, environmentFactors)).toBe(result);
+    expect(getProfitForCrop(input, environmentFactors)).toBe(result);
   });
 });
 

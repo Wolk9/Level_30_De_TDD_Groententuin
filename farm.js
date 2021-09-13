@@ -28,7 +28,8 @@ const environmentFactors = {
   rain: "low"
 };
 
-const getCostsForCrop = (crop) => {
+const getCostsForCrop = (crop, envFact) => {
+  console.log("32 getCostForCrop" + crop + envFact);
   const costPerCrop = crop.yield * crop.costPerPlant;
   return costPerCrop;
 };
@@ -88,9 +89,10 @@ const getRevenueForCrop = (crop, envFact) => {
   return revPerCrop;
 };
 
-const getProfitForCrop = (crop) => {
-  const costCrop = getCostsForCrop(crop);
-  const revCrop = getRevenueForCrop(crop);
+const getProfitForCrop = (crop, envFact) => {
+  console.log("94 getProfitForCrop" + crop, envFact);
+  const costCrop = getCostsForCrop(crop, envFact);
+  const revCrop = getRevenueForCrop(crop, envFact);
   profitCrop = revCrop - costCrop;
   return profitCrop;
 };
