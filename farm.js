@@ -29,8 +29,15 @@ const environmentFactors = {
 };
 
 const getCostsForCrop = (crop, envFact) => {
-  console.log("32 getCostForCrop" + crop + envFact);
+  console.log("32  getCostForCrop ", crop, envFact);
+  if (envFact != undefined) {
+    let yieldForCropWithEnv = getYieldForCrop(crop, envFact);
+    let revPerCrop = yieldForCropWithEnv; //* corn.salesPrice * numCrops;
+    console.log("36 CostForCrop ", revPerCrop * crop.crop.costPerPlant);
+    return revPerCrop * crop.crop.costPerPlant;
+  }
   const costPerCrop = crop.yield * crop.costPerPlant;
+  console.log("40 ", costPerCrop, crop.yield, crop.costPerPlant);
   return costPerCrop;
 };
 
@@ -48,7 +55,7 @@ const getYieldForPlant = (crop, envFact) => {
     calculatedEnvironmentFactor = calcEnvFact.toFixed(2); // round up due to floatingpoint errors
 
     result = (crop.yield * (calculatedEnvironmentFactor * 10)) / 10;
-
+    console.log("58 YieldForPlant ", Number(parseFloat(result).toFixed(2)));
     return Number(parseFloat(result).toFixed(2)); //round(calculatedEnvrionmentFactor, 2);
   } else return crop.yield; // just return the crop yield when no environmental factors play a role.
 };
@@ -58,8 +65,8 @@ const getYieldForCrop = (crop, envFact) => {
   crop = crop.crop; // dismantel the crop input to just crop info as getYeildForPlant expects
   if (envFact != undefined) {
     let cropYield = getYieldForPlant(crop, envFact); // use yield for crop function for a result as cropYield
-
     let yieldForCrop = cropYield * numCrops; // calculation of yield of Crop
+    console.log("69 YieldForCrop ", yieldForCrop);
     return yieldForCrop; // the calculated result
   } else return crop.yield * numCrops;
 };
@@ -80,9 +87,12 @@ const getTotalYield = (list, envFact) => {
 };
 
 const getRevenueForCrop = (crop, envFact) => {
+  console.log("90 getRevenueForCrop ", crop);
+  console.log("91 ", envFact);
   if (envFact != undefined) {
     let yieldForCropWithEnv = getYieldForCrop(crop, envFact);
     let revPerCrop = yieldForCropWithEnv; //* corn.salesPrice * numCrops;
+    console.log("95 revenueForCrop ", revPerCrop * crop.crop.salesPrice);
     return revPerCrop * crop.crop.salesPrice;
   }
   const revPerCrop = crop.yield * crop.salesPrice;
@@ -90,10 +100,12 @@ const getRevenueForCrop = (crop, envFact) => {
 };
 
 const getProfitForCrop = (crop, envFact) => {
-  console.log("94 getProfitForCrop" + crop, envFact);
+  console.log("103 getProfitForCrop ", crop);
+  console.log("104 ", envFact);
   const costCrop = getCostsForCrop(crop, envFact);
   const revCrop = getRevenueForCrop(crop, envFact);
   profitCrop = revCrop - costCrop;
+  console.log("108 profitCrop ", revCrop, costCrop, profitCrop);
   return profitCrop;
 };
 

@@ -182,8 +182,8 @@ describe("getProfitforCrop", () => {
       costPerPlant: 1,
       salesPrice: 2
     };
-    const result = getProfitForCrop(corn);
-    expect(result).toBe(30);
+    const expectedResult = getProfitForCrop(corn);
+    expect(expectedResult).toBe(30);
   });
   test("Profit for pumpkin should be 12", () => {
     const pumpkin = {
@@ -199,10 +199,10 @@ describe("getProfitforCrop", () => {
       costPerPlant: 2,
       salesPrice: 5
     };
-    const result = getProfitForCrop(pumpkin);
-    expect(result).toBe(12);
+    const expectedResult = getProfitForCrop(pumpkin);
+    expect(expectedResult).toBe(12);
   });
-  test.only("profit for corn should be 480, with environment Sun:high, Wind: Low, Rain: Medium", () => {
+  test("profit for corn should be 480, with environment Sun:high, Wind: Low, Rain: Medium", () => {
     const corn = {
       name: "corn",
       yield: 30,
