@@ -9,7 +9,6 @@ const {
 } = require("./farm");
 
 describe("todo's", () => {
-  test.todo("getProfitForCrop with enviroment");
   test.todo("getTotalProfit with enviroment");
 });
 
@@ -305,8 +304,124 @@ describe("getProfitforCrop", () => {
 
 describe("getTotalProfit", () => {
   test("total profit for all crops (corn + pumpkin) should be 42", () => {
-    let result = getTotalProfit();
-    expect(result).toBe(42);
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const environmentFactors = {
+      sun: "medium",
+      wind: "high",
+      rain: "low"
+    };
+    const crops = [
+      { crop: corn, numCrops: 8 },
+      { crop: pumpkin, numCrops: 12 }
+    ];
+
+    expect(getTotalProfit(crops)).toBe(26.4);
+  });
+
+  test("total profit for all crops (corn + pumpkin) with environmet Sun:medium, Wind: high, Rain: low should be 137.28", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const environmentFactors = {
+      sun: "medium",
+      wind: "high",
+      rain: "low"
+    };
+    const crops = [
+      { crop: corn, numCrops: 8 },
+      { crop: pumpkin, numCrops: 12 }
+    ];
+
+    const envFactCorn = (1 * 0.4 * 0.8).toFixed(2);
+    const envFactPumpkin = (1 * 0.7 * 0.6).toFixed(2);
+    const revCorn = envFactCorn * 30 * 2 * 8;
+    const revPumpkin = envFactPumpkin * 4 * 5 * 12;
+    const costsCorn = envFactCorn * 30 * 1 * 8;
+    const costsPumpkin = envFactPumpkin * 4 * 2 * 12;
+    const result = revCorn - costsCorn + (revPumpkin - costsPumpkin);
+    expect(getTotalProfit({ crops }, environmentFactors)).toBe(result);
+  });
+  test("total profit for all crops (corn + pumpkin) with environmet Sun: low, Wind: high, Rain: high should be 66.24", () => {
+    const pumpkin = {
+      name: "pumpkin",
+      yield: 4,
+      factors: {
+        sun: { low: -50, medium: 0, high: 50 },
+        wind: { low: 0, medium: -10, high: -30 },
+        rain: { low: -40, medium: 0, high: -20 }
+      },
+      costPerPlant: 2,
+      salesPrice: 5
+    };
+    const corn = {
+      name: "corn",
+      yield: 30,
+      factors: {
+        sun: { low: -10, medium: 0, high: 60 },
+        wind: { low: 0, medium: -30, high: -60 },
+        rain: { low: -20, medium: 0, high: -70 }
+      },
+      costPerPlant: 1,
+      salesPrice: 2
+    };
+    const environmentFactors = {
+      sun: "low",
+      wind: "high",
+      rain: "high"
+    };
+    const crops = [
+      { crop: corn, numCrops: 8 },
+      { crop: pumpkin, numCrops: 12 }
+    ];
+
+    const envFactCorn = (0.9 * 0.4 * 0.3).toFixed(2); //0.108
+    const envFactPumpkin = (0.5 * 0.7 * 0.8).toFixed(2); //0.28
+    const revCorn = envFactCorn * 30 * 2 * 8; // 51.84
+    const revPumpkin = envFactPumpkin * 4 * 5 * 12; //67.2
+    const costsCorn = envFactCorn * 30 * 1 * 8; // 25.92
+    const costsPumpkin = envFactPumpkin * 4 * 2 * 12; //26.88
+    const result = revCorn - costsCorn + (revPumpkin - costsPumpkin); // 66.24
+    expect(getTotalProfit({ crops }, environmentFactors)).toBe(result);
   });
 });
 
