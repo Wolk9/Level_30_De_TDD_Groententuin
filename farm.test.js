@@ -8,9 +8,7 @@ const {
   getTotalProfit
 } = require("./farm");
 
-describe("todo's", () => {
-  test.todo("getTotalProfit with enviroment");
-});
+describe("todo's", () => {});
 
 describe("getCostForCrops, calculate costs per crop", () => {
   test("cost for corn should be 30 ", () => {
@@ -336,7 +334,7 @@ describe("getTotalProfit", () => {
       { crop: pumpkin, numCrops: 12 }
     ];
 
-    expect(getTotalProfit(crops)).toBe(26.4);
+    expect(getTotalProfit(crops)).toBe(42);
   });
 
   test("total profit for all crops (corn + pumpkin) with environmet Sun:medium, Wind: high, Rain: low should be 137.28", () => {

@@ -1,51 +1,25 @@
-const corn = {
-  name: "corn",
-  yield: 30,
-  factors: {
-    sun: { low: -10, medium: 0, high: 60 },
-    wind: { low: 0, medium: -30, high: -60 },
-    rain: { low: -20, medium: 0, high: -70 }
-  },
-  costPerPlant: 1,
-  salesPrice: 2
-};
-
-const pumpkin = {
-  name: "pumpkin",
-  yield: 4,
-  factors: {
-    sun: { low: -50, medium: 0, high: 50 },
-    wind: { low: 0, medium: -10, high: -30 },
-    rain: { low: -40, medium: 0, high: -20 }
-  },
-  costPerPlant: 2,
-  salesPrice: 5
-};
-
-const environmentFactors = {
-  sun: "low",
-  wind: "medium",
-  rain: "low"
-};
-
 const getCostsForCrop = (crop, envFact) => {
-  // console.log("32  getCostForCrop ", crop, envFact);
   if (envFact != undefined) {
+    // if environment factors are not applicable, they should not be processed.
     let yieldForCropWithEnv = getYieldForCrop(crop, envFact);
     let revPerCrop = yieldForCropWithEnv; //* corn.salesPrice * numCrops;
-    // // console.log("36 CostForCrop ", revPerCrop * crop.crop.costPerPlant);
-    if (typeof crop === "object" || crop.isArray) {
+    if (typeof crop.crop === "object") {
+      // the input can be 1 crop or more. If it are more crops, the input is a cascaded object and therefor it should be tested if the cascaded or the non-cascaded object should be read
       const costPerCrop = revPerCrop * crop.crop.costPerPlant;
       return costPerCrop;
     } else {
       const costPerCrop = revPerCrop * crop.costPerPlant;
-      console.log("40 ", costPerCrop, crop.yield, crop.costPerPlant);
       return costPerCrop;
     }
   }
-  const costPerCrop = crop.yield * crop.costPerPlant;
-  // // console.log("40 ", costPerCrop, crop.yield, crop.costPerPlant);
-  return costPerCrop;
+  if (typeof crop.crop === "object") {
+    // the input can be 1 crop or more. If it are more crops, the input is a cascaded object and therefor it should be tested if the cascaded or the non-cascaded object should be read
+    const costPerCrop = crop.crop.yield * crop.crop.costPerPlant;
+    return costPerCrop;
+  } else {
+    const costPerCrop = crop.yield * crop.costPerPlant;
+    return costPerCrop;
+  }
 };
 
 const getYieldForPlant = (crop, envFact) => {
@@ -62,7 +36,6 @@ const getYieldForPlant = (crop, envFact) => {
     calculatedEnvironmentFactor = calcEnvFact.toFixed(2); // round up due to floatingpoint errors
 
     result = (crop.yield * (calculatedEnvironmentFactor * 10)) / 10;
-    console.log("65  ", Number(parseFloat(result).toFixed(2)));
     return Number(parseFloat(result).toFixed(2)); //round(calculatedEnvrionmentFactor, 2);
   } else return crop.yield; // just return the crop yield when no environmental factors play a role.
 };
@@ -71,17 +44,18 @@ const getYieldForCrop = (crop, envFact) => {
   numCrops = crop.numCrops; // extract numCrops of crop for the calculation
   crop = crop.crop; // dismantel the crop input to just crop info as getYeildForPlant expects
   if (envFact != undefined) {
+    // if environment factors are not applicable, they should not be processed.
     let cropYield = getYieldForPlant(crop, envFact); // use yield for crop function for a result as cropYield
     let yieldForCrop = cropYield * numCrops; // calculation of yield of Crop
-    // // console.log("69 YieldForCrop ", yieldForCrop);
     return yieldForCrop; // the calculated result
   } else return crop.yield * numCrops;
 };
 
 const getTotalYield = (list, envFact) => {
-  listOfCrops = list.crops;
+  listOfCrops = list.crops; // as a Total Yield is a list, it needs to be enumerated to process
   let totalYield = 0;
   if (envFact != undefined) {
+    // if environment factors are not appilcable, they should not be processed.
     for (i = 0; i < listOfCrops.length; i++) {
       totalYield += getYieldForCrop(listOfCrops[i], envFact);
     }
@@ -94,56 +68,52 @@ const getTotalYield = (list, envFact) => {
 };
 
 const getRevenueForCrop = (crop, envFact) => {
-  // console.log("97 getRevenueForCrop ", crop);
-  // // console.log("91 ", envFact);
   if (envFact != undefined) {
+    // if environment factors are not applicable, they should not be processed.
     let yieldForCropWithEnv = getYieldForCrop(crop, envFact);
     let revPerCrop = yieldForCropWithEnv; //* corn.salesPrice * numCrops;
-    // console.log("102 revenueForCrop ", revPerCrop * crop.crop.salesPrice);
-    if (typeof crop === "object" || crop.isArray) {
+    if (typeof crop.crop === "object") {
+      // the input can be 1 crop or more. If it are more crops, the input is a cascaded object and therefor it should be tested if the cascaded or the non-cascaded object should be read
       const totRevPerCrop = revPerCrop * crop.crop.salesPrice;
-      console.log("105 ", totRevPerCrop);
       return totRevPerCrop;
     } else {
       const totRevPerCrop = revPerCrop * crop.salesPrice;
       return totRevPerCrop;
     }
   }
-  const revPerCrop = crop.yield * crop.salesPrice;
-  // console.log("113 ", revPerCrop);
-  return revPerCrop;
+  if (typeof crop.crop === "object") {
+    // the input can be 1 crop or more. If it are more crops, the input is a cascaded object and therefor it should be tested if the cascaded or the non-cascaded object should be read
+    const totRevPerCrop = crop.crop.yield * crop.crop.salesPrice;
+    return totRevPerCrop;
+  } else {
+    const totRevPerCrop = crop.yield * crop.salesPrice;
+    return totRevPerCrop;
+  }
 };
 
 const getProfitForCrop = (crop, envFact) => {
-  // console.log("118 getProfitForCrop ", crop);
-  // // console.log("106", envFact);
-  const costCrop = getCostsForCrop(crop, envFact);
-  const revCrop = getRevenueForCrop(crop, envFact);
+  const costCrop = getCostsForCrop(crop, envFact); // calculate the costs
+  const revCrop = getRevenueForCrop(crop, envFact); // calculate the revenue
   profitCrop = revCrop - costCrop;
-  console.log("123 profitCrop ", revCrop, costCrop, profitCrop);
   return profitCrop;
 };
 
 const getTotalProfit = (list, envFact) => {
-  // console.log("128 ", list, envFact);
   let totalProfit = 0;
   if (list != undefined) {
+    // process it as a list or not. if so enumeration is nescessary
     listOfCrops = list.crops;
     if (envFact != undefined) {
+      // if environment factors are not applicable, they should not be processed.
       for (i = 0; i < listOfCrops.length; i++) {
-        console.log("134_", totalProfit);
         totalProfit += getProfitForCrop(listOfCrops[i], envFact);
-        console.log("136_ ", listOfCrops[i], totalProfit);
       }
     } else {
       listOfCrops = list;
-      // console.log("138 ", list, list.length, envFact);
       for (i = 0; i < list.length; i++) {
         totalProfit += getProfitForCrop(list[i]);
-        // console.log("141 ", totalProfit);
       }
     }
-    console.log("146 TotalProfit ", Number(totalProfit));
     return Number(totalProfit);
   } else {
     const totalProfit = getProfitForCrop(list, envFact);

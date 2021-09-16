@@ -1,8 +1,10 @@
-# Groentetuin Schema
+# Vegetable Garden Assignment
+
+## Vegetable garden Scheme
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiZmxvd2NoYXJ0IExSXG5BW3N0YXJ0XSA9PSBjcm9wLCBlbnZGYWN0ID09PiBCW1wiZ2V0UHJvZml0Rm9yQ3JvcChjcm9wLCBlbnZGYWN0KVwiXVxuQiAtLSBjcm9wLCBlbnZGYWN0IC0tPiBDT1NUXG5CIC0tIGNyb3AsIGVudkZhY3QgLS0-IFJFVlxuQiA9PSBwcm9maXRDcm9wID09PiBFW2VuZF1cbkNPU1QgLS0gY29zdEZvckNyb3AgLS0-IEJcblJFViAtLSByZXZQZXJDcm9wIC0tPiBCXG5EIC0tIGNyb3AsIGVudkZhY3QgLS0-IEZbXCJnZXRZaWVsZGZvckNyb3AoY3JvcCwgZW52RmFjdClcIl1cbkYgLS0geWllbGRGb3JDcm9wIC0tPiBEXG5GIC0tIGNyb3AsIGVudkZhY3QgLS0-IEdbXCJnZXRZaWVsZm9yUGxhbnQoY3JvcCwgZW52RmFjdClcIl1cbkcgLS0geWllbGRGb1BsYW50IC0tPiBGXG5zdWJncmFwaCBSRVZcbmRpcmVjdGlvbiBUQlxuRFtcImdldFJldmVudWVGb3JDcm9wKGNyb3AsIGVudkZhY3QpXCJdXG5GW1wiZ2V0WWllbGRmb3JDcm9wKGNyb3AsIGVudkZhY3QpXCJdXG5HW1wiZ2V0WWllbGZvclBsYW50KGNyb3AsIGVudkZhY3QpXCJdXG5lbmRcbnN1YmdyYXBoIENPU1RcbmRpcmVjdGlvbiBMUlxuQ1tcImdldENvc3RGb3JDcm9wKGNyb3AsIGVudkZhY3QpXCJdXG5lbmQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoiZ3JhcGggVERcbiAgICBBW0NocmltYXNdIC0tPnxHZXQgbW9uZXl8IEIoR28gc2hvcHBpbmcpXG4gICAgQiAtLT4gQ3tMZXQgbWUgdGhpbmt9XG4gICAgQyAtLT58T25lfCBEW0xhcHRvcF1cbiAgICBDIC0tPnxUd298IEVbaVBob25lXVxuICAgIEMgLS0-fFRocmVlfCBGW2ZhOmZhLWNhciBDYXJdIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
 
-::: mermaid
+```mermaid
 flowchart LR
 A[start] == crop, envFact ==> B["getProfitForCrop(crop, envFact)"]
 B -- crop, envFact --> COST
@@ -24,6 +26,20 @@ subgraph COST
 direction LR
 C["getCostForCrop(crop, envFact)"]
 end
-:::
+```
 
 ---
+
+## Challenges
+
+The Vegetable Garden assigniment seemed easy at first, but it appeared in more aspects pretty hard to accomplish.
+The following aspects made it hard:
+
+1. At first I encountered a floating point error what caused FAILed tests.
+2. Further in the assignment, adding the envorionment factors made it pretty complex. Especiallly as the form of input changed by cascading objects.
+
+## Considerations
+
+I choose to test the inputs on cascading objects and depending on the outcome to extract the values and do the math with it.
+
+I realize that DRY with that choise isn't accomplished quite well. The code however is readable, which is also a good thing
